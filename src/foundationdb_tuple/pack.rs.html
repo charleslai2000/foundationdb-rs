@@ -179,7 +179,7 @@
 <a href=#179 id=179 data-nosnippet>179</a>    <span class="prelude-val">Ok</span>(VersionstampOffset::None { size })
 <a href=#180 id=180 data-nosnippet>180</a>}
 <a href=#181 id=181 data-nosnippet>181</a>
-<a href=#182 id=182 data-nosnippet>182</a><span class="kw">fn </span>parse_slice(input: <span class="kw-2">&amp;</span>[u8]) -&gt; PackResult&lt;(<span class="kw-2">&amp;</span>[u8], Cow&lt;[u8]&gt;)&gt; {
+<a href=#182 id=182 data-nosnippet>182</a><span class="kw">fn </span>parse_slice(input: <span class="kw-2">&amp;</span>[u8]) -&gt; PackResult&lt;(<span class="kw-2">&amp;</span>[u8], Cow&lt;<span class="lifetime">'_</span>, [u8]&gt;)&gt; {
 <a href=#183 id=183 data-nosnippet>183</a>    <span class="kw">let </span><span class="kw-2">mut </span>bytes = Vec::new();
 <a href=#184 id=184 data-nosnippet>184</a>    <span class="kw">let </span><span class="kw-2">mut </span>pos = <span class="number">0</span>;
 <a href=#185 id=185 data-nosnippet>185</a>    <span class="kw">for </span>idx <span class="kw">in </span>memchr_iter(NIL, input) {
@@ -203,7 +203,7 @@
 <a href=#203 id=203 data-nosnippet>203</a>    <span class="prelude-val">Err</span>(PackError::MissingBytes)
 <a href=#204 id=204 data-nosnippet>204</a>}
 <a href=#205 id=205 data-nosnippet>205</a>
-<a href=#206 id=206 data-nosnippet>206</a><span class="kw">fn </span>parse_string(input: <span class="kw-2">&amp;</span>[u8]) -&gt; PackResult&lt;(<span class="kw-2">&amp;</span>[u8], Cow&lt;str&gt;)&gt; {
+<a href=#206 id=206 data-nosnippet>206</a><span class="kw">fn </span>parse_string(input: <span class="kw-2">&amp;</span>[u8]) -&gt; PackResult&lt;(<span class="kw-2">&amp;</span>[u8], Cow&lt;<span class="lifetime">'_</span>, str&gt;)&gt; {
 <a href=#207 id=207 data-nosnippet>207</a>    <span class="kw">let </span>(input, slice) = parse_slice(input)<span class="question-mark">?</span>;
 <a href=#208 id=208 data-nosnippet>208</a>    <span class="prelude-val">Ok</span>((
 <a href=#209 id=209 data-nosnippet>209</a>        input,
